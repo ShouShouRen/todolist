@@ -64,9 +64,7 @@ add.addEventListener("click", (e) => {
     let edittext = prompt("edit", innertext.textContent);
     innertext.textContent = edittext;
     let myListArray = JSON.parse(localStorage.getItem("list"));
-    myTodo = JSON.parse(myListArray);
-    myTodo.splice(edittext, 1, innertext);
-    localStorage.setItem("list", JSON.stringify(myTodo));
+    
   });
 
   todo.appendChild(completeButton);
