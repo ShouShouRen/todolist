@@ -64,7 +64,7 @@ add.addEventListener("click", (e) => {
     let edittext = prompt("edit", innertext.textContent);
     innertext.textContent = edittext;
     let myListArray = JSON.parse(localStorage.getItem("list"));
-    
+
   });
 
   todo.appendChild(completeButton);
@@ -75,7 +75,7 @@ add.addEventListener("click", (e) => {
 
   //   create an object
   let myTodo = {
-    todoText: todoText,
+    todoText: todoText
   };
 
   //   localstorge
@@ -147,10 +147,7 @@ if (myList !== null) {
       let innertext = this.parentElement.children[0];
       let edittext = prompt("edit", innertext.textContent);
       innertext.textContent = edittext;
-      let myListArray = JSON.parse(localStorage.getItem("list"));
-      myTodo = JSON.parse(myListArray);
-      myTodo.splice(edittext, 1, innertext);
-      localStorage.setItem("list", JSON.stringify(myTodo));
+      let
     });
 
     todo.appendChild(completeButton);
