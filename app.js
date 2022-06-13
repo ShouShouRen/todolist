@@ -71,6 +71,7 @@ add.addEventListener("click", (e) => {
       localStorage.setItem("list", JSON.stringify([myTodo]));
     } else {
       let myListArray = JSON.parse(myList);
+      myListArray.pop(myTodo);
       myListArray.push(myTodo);
       localStorage.setItem("list", JSON.stringify(myListArray));
     }
@@ -165,6 +166,7 @@ if (myList !== null) {
         localStorage.setItem("list", JSON.stringify([myTodo]));
       } else {
         let myListArray = JSON.parse(myList);
+        myListArray.pop(myTodo);
         myListArray.push(myTodo);
         localStorage.setItem("list", JSON.stringify(myListArray));
       }
