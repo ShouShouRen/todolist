@@ -63,7 +63,17 @@ add.addEventListener("click", (e) => {
     let innertext = this.parentElement.children[0];
     let edittext = prompt("edit", innertext.textContent);
     innertext.textContent = edittext;
-    let myListArray = JSON.parse(localStorage.getItem("list"));
+    let myTodo = {
+      todoText: edittext
+    };
+    let myList = localStorage.getItem("list");
+    if (myList == null) {
+      localStorage.setItem("list", JSON.stringify([myTodo]));
+    } else {
+      let myListArray = JSON.parse(myList);
+      myListArray.push(myTodo);
+      localStorage.setItem("list", JSON.stringify(myListArray));
+    }
 
   });
 
@@ -143,11 +153,21 @@ if (myList !== null) {
     let editButton = document.createElement("button");
     editButton.classList.add("edit");
     editButton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
-    editButton.addEventListener("click", function (e) {
+    editButton.addEventListener("click", function () {
       let innertext = this.parentElement.children[0];
       let edittext = prompt("edit", innertext.textContent);
       innertext.textContent = edittext;
-      let
+      let myTodo = {
+        todoText: edittext
+      };
+      let myList = localStorage.getItem("list");
+      if (myList == null) {
+        localStorage.setItem("list", JSON.stringify([myTodo]));
+      } else {
+        let myListArray = JSON.parse(myList);
+        myListArray.push(myTodo);
+        localStorage.setItem("list", JSON.stringify(myListArray));
+      }
     });
 
     todo.appendChild(completeButton);
