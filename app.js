@@ -63,6 +63,10 @@ add.addEventListener("click", (e) => {
     let innertext = this.parentElement.children[0];
     let edittext = prompt("edit", innertext.textContent);
     innertext.textContent = edittext;
+    let myListArray = JSON.parse(localStorage.getItem("list"));
+    myTodo = JSON.parse(myListArray);
+    myTodo.splice(edittext, 1, innertext);
+    localStorage.setItem("list", JSON.stringify(myTodo));
   });
 
   todo.appendChild(completeButton);
@@ -142,9 +146,13 @@ if (myList !== null) {
     editButton.classList.add("edit");
     editButton.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
     editButton.addEventListener("click", function (e) {
-        let innertext = this.parentElement.children[0];
-        let edittext = prompt("edit", innertext.textContent);
-        innertext.textContent = edittext;
+      let innertext = this.parentElement.children[0];
+      let edittext = prompt("edit", innertext.textContent);
+      innertext.textContent = edittext;
+      let myListArray = JSON.parse(localStorage.getItem("list"));
+      myTodo = JSON.parse(myListArray);
+      myTodo.splice(edittext, 1, innertext);
+      localStorage.setItem("list", JSON.stringify(myTodo));
     });
 
     todo.appendChild(completeButton);
